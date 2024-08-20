@@ -1,7 +1,7 @@
-// Import the required modules
+// Importing the required modules
 const mongoose = require('mongoose');
 
-// Connect to the local MongoDB instance
+// Connect to the local MongoDB instance the app with the terminal 
 mongoose.connect('mongodb://localhost:27017/mydatabase', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Define the Mongoose schema for the User model
@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     created_at: { type: Date, default: Date.now }
 });
 
-// Create the User model from the schema
+// Create the User model from the schema 
 const User = mongoose.model('User', userSchema);
 
 // Create Operation: Script to create and save a new user
@@ -31,7 +31,7 @@ async function findAllUsers() {
     try {
         const users = await User.find();
         console.log('All users:', users);
-    } catch (error) {
+    } catch (error) { //if not found
         console.error('Error finding users:', error);
     }
 }
@@ -50,7 +50,7 @@ async function findUserByEmail(email) {
     }
 }
 
-// Update Operation: Script to update the age of a user based on their email
+// update the age of a user based on their email
 async function updateUserAge(email, newAge) {
     try {
         const user = await User.findOneAndUpdate(
@@ -68,7 +68,7 @@ async function updateUserAge(email, newAge) {
     }
 }
 
-// Delete Operation: Script to delete a user by their email
+// delete a user by their email
 async function deleteUserByEmail(email) {
     try {
         const result = await User.deleteOne({ email });
