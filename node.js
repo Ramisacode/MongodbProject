@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // Connect to the local MongoDB instance the app with the terminal 
-mongoose.connect('mongodb://localhost:27017/mydatabase', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/mydatabase', { useNewUrlParser: true, useUnifiedTopology: true }); // this is not connecting to creat jason package
 
 // Define the Mongoose schema for the User model
 const userSchema = new mongoose.Schema({
